@@ -1,0 +1,65 @@
+ // INSERT THE CODE IN YOUR HTML
+ 
+ <style>
+    
+    .gallery-container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        gap: 2vw;
+        padding: 0 2vw;
+    }
+    .gallery-items{
+        width: 340px;
+        height: 340px;
+        border: 10px solid #FFF;
+        box-shadow: 5px 5px 5px #0006;
+        flex-grow: 1;
+        transition: transform .5s linear;
+    }
+    .gallery-items img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .gallery-items:hover{
+        transform: scale(1.3);
+    }
+    
+ </style>
+	
+ <script>
+    'use strict';
+
+    const images = [
+    {'url':'fotos/01.jpeg' },
+		{'url':'fotos/02.jpeg' },
+		{'url':'fotos/03.jpeg' },
+		{'url':'fotos/04.jpeg' },
+		{'url':'fotos/05.jpeg' },
+		{'url':'fotos/06.jpeg' },
+		{'url':'fotos/07.jpeg' },
+		{'url':'fotos/08.jpeg' },
+		{'url':'fotos/09.jpeg' },
+		{'url':'fotos/10.jpeg' },
+		{'url':'fotos/11.jpeg' },
+		{'url':'fotos/12.jpeg' },
+		{'url':'fotos/13.jpeg' },
+		
+    ]
+
+    const containerItems = document.querySelector('.gallery-container');
+
+    const loadImages = ( images, container ) => {
+        images.forEach ( image => {
+            container.innerHTML += `
+            <a href="${image.url}" target="_blank" class="gallery-items">
+            <img src="${image.url}" alt="Check the image!">
+            </a>
+            `
+        })
+    }
+
+    loadImages( images, containerItems );
+ </script>
